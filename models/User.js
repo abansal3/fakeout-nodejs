@@ -5,8 +5,8 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
   email: { type: String, unique: true },
   password: String,
-  upVotes: Number,
-  isCurator: Boolean,
+  upVotes: { type: Number, default: 0 },
+  isCurator: { type: Boolean, default: false },
   followers: Array,
   curators: Array
 }, { timestamps: true });

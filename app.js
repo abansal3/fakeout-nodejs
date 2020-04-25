@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var flag = require('./routes/flag');
 
 var app = express();
 
@@ -25,8 +26,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/flags', flag);
 
-mongoose.connect('mongodb+srv://arpit:sasm9WUT_shen@cluster0-il7t8.mongodb.net/test?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://arpit:sasm9WUT_shen@cluster0-il7t8.mongodb.net/fakeout?retryWrites=true&w=majority');
 mongoose.connection.on('error', (err) => {
   console.error(err);
   console.log('%s MongoDB connection error. Please make sure MongoDB is running.');
