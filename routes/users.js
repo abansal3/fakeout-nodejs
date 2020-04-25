@@ -38,6 +38,8 @@ router.post('/signin', function(req, res, next) {
       existingUser.comparePassword(req.body.password, function(err, isMatch) {
         if (err) throw err;
         console.log(req.body.password, isMatch); // -> Password123: true
+        // res.send("user found");
+        res.json(existingUser)
       });
     } else {
       console.error("no user found");

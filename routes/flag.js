@@ -5,7 +5,7 @@ const User = require('../models/User');
 
 /* GET users listing. */
 router.post('/flag', function(req, res, next) {
-    User.findOne({ email: req.body.email }, (err, existingUser) => {
+    User.findById(req.body.userId, (err, existingUser) => {
         if (err) { return next(err); }
     
         if (existingUser) {
@@ -16,7 +16,7 @@ router.post('/flag', function(req, res, next) {
                 domain: req.body.domain,
                 flaggedBy: userId,
                 isSuspicious: req.body.isSuspicious,
-                comment: ""
+                comment: req.body.flagComment
             });
 
             flag.save((err) => {
