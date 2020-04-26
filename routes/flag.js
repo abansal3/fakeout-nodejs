@@ -69,7 +69,7 @@ router.post('/getFlagsByUser', function(req, res, next) {
             console.error('No flagged link found');
             res.send('No flagged link found');
         }
-    }).limit(5);
+    });
 });
 
 module.exports = router;
